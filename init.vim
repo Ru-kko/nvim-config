@@ -10,6 +10,8 @@ Plug 'jiangmiao/auto-pairs' " Automatic close brakets
 Plug 'preservim/nerdcommenter' " Line commeter
 Plug 'christoomey/vim-tmux-navigator' " navigate betwen windows
 Plug 'ryanoasis/vim-devicons' " Icons for nerdtree
+Plug 'leafgarland/typescript-vim' " --⤵
+Plug 'peitalin/vim-jsx-typescript' " Jsx and tsx syntax highlighting
 
 call plug#end()
 
@@ -117,6 +119,6 @@ nmap <C-e> :call CocAction('jumpDefinition', 'vsplit')<CR>
 "" Prettier
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
-nnoremap <C-F1> :Prettier <CR>
-inoremap <C-F1> <ESC>:Prettier<CR>:startinsert <CR>
-vmap <C-F1> <ESC>:Prettier<CR>
+nmap <F13> :Prettier <CR>
+imap <F13> <ESC>:Prettier<CR>:startinsert <CR>
+vmap <F13> <ESC>:Prettier<CR>
