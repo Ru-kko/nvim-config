@@ -119,6 +119,12 @@ nmap <C-e> :call CocAction('jumpDefinition', 'vsplit')<CR>
 "" Prettier
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
-nmap <F13> :Prettier <CR>
-imap <F13> <ESC>:Prettier<CR>:startinsert <CR>
-vmap <F13> <ESC>:Prettier<CR>
+if $TERM ==# 'alacritty'
+	nmap <F13> :Prettier <CR>
+	imap <F13> <ESC>:Prettier<CR>:startinsert <CR>
+	vmap <F13> <ESC>:Prettier<CR>
+else
+	nmap <S-F1> :Prettier <CR>
+	imap <S-F1> <ESC>:Prettier<CR>:startinsert <CR>
+	vmap <S-F1> <ESC>:Prettier<CR>
+endif
