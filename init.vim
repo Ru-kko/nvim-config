@@ -36,6 +36,7 @@ set hlsearch
 set inccommand=nosplit
 set hidden
 let mapleader="."
+let langServers=["coc-tsserver", "coc-json", "coc-rust-analyzer","coc-go"]
 
 "" Find words
 nmap <c-f> /
@@ -96,7 +97,7 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
-"" Comments in json
+"" Comments in json<F13>
 augroup JsonToJsonc
     autocmd! FileType json set filetype=jsonc
 augroup END
@@ -128,3 +129,7 @@ else
 	imap <S-F1> <ESC>:Prettier<CR>:startinsert <CR>
 	vmap <S-F1> <ESC>:Prettier<CR>
 endif
+
+" Coc Intallation 
+command! -nargs=0 ServerInstall :execute ':CocInstall ' . join(langServers)
+
